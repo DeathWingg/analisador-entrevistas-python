@@ -4,6 +4,11 @@
 <div class="resultados-container">
     <h2>📊 Relatório de Análise</h2>
     <p>Abaixo estão os trechos agrupados por código de análise.</p>
+    
+    <!-- BOTÃO DE EXPORTAR -->
+    <a href="{{ url_for('exportar_relatorio') }}" class="btn" style="background-color: #2ecc71; margin-bottom: 20px; display: inline-block; font-weight: bold;">
+        ⬇️ Baixar Relatório (Excel/CSV)
+    </a>
 
     {% for item in relatorio %}
     <div class="codigo-card">
