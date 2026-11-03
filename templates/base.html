@@ -9,6 +9,10 @@
 <body>
     <nav>
         <h1>🔍 Analisador de Entrevistas</h1>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Início</a>
+            <a href="{{ url_for('resultados') }}">Resultados</a>
+        </div>
     </nav>
     <div class="container">
         {% block content %}{% endblock %}

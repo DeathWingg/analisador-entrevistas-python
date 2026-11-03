@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="resultados-container">
+    <h2>📊 Relatório de Análise</h2>
+    <p>Abaixo estão os trechos agrupados por código de análise.</p>
+
+    {% for item in relatorio %}
+    <div class="codigo-card">
+        <h3>{{ item.codigo }} <span>({{ item.trechos|length }} trechos)</span></h3>
+        
+        {% if item.trechos %}
+            <ul class="trechos-list">
+                {% for t in item.trechos %}
+                <li>
+                    <p class="trecho-texto">"{{ t.texto_selecionado }}"</p>
+                    <p class="trecho-fonte">Fonte: {{ t.titulo }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="sem-dados">Nenhum trecho codificado com este código ainda.</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
