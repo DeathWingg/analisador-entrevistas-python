@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Adicionar Nova Entrevista</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="titulo">Título da Entrevista</label>
+            <input type="text" name="titulo" id="titulo" placeholder="Ex: Entrevista 01 - Professora Maria" required>
+        </div>
+        <div class="form-group">
+            <label for="texto">Transcrição da Entrevista</label>
+            <textarea name="texto" id="texto" rows="15" placeholder="Cole aqui o texto da entrevista..." required></textarea>
+        </div>
+        <button type="submit" class="btn">Salvar Entrevista</button>
+        <a href="{{ url_for('index') }}" class="btn btn-cancel">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

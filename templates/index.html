@@ -4,13 +4,13 @@
     <div class="actions">
         <h2>Bem-vindo ao seu gerenciador de pesquisa qualitativa</h2>
         <br>
-        <a href="#" class="btn">+ Nova Entrevista</a>
+        <a href="{{ url_for('nova_entrevista') }}" class="btn">+ Nova Entrevista</a>
     </div>
 
     <div class="dashboard">
         <div class="card">
             <h2>Entrevistas</h2>
-            <div class="number">0</div>
+            <div class="number">{{ total_entrevistas }}</div>
         </div>
         <div class="card" style="border-top-color: #e74c3c;">
             <h2>Códigos Criados</h2>
