@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="interview-layout">
+    <div class="text-panel">
+        <h2>{{ entrevista.titulo }}</h2>
+        <div id="texto-entrevista" data-id="{{ entrevista.id }}">{{ entrevista.texto }}</div>
+    </div>
+    
+    <div class="sidebar">
+        <h3>Códigos de Análise</h3>
+        <ul id="lista-codigos">
+            {% for c in codigos %}
+            <li data-id="{{ c.id }}">{{ c.nome }}</li>
+            {% endfor %}
+        </ul>
+        <form action="{{ url_for('novo_codigo') }}" method="POST" class="form-codigo">
+            <input type="text" name="nome" placeholder="Novo código..." required>
+            <button type="submit">+</button>
+        </form>
+    </div>
+</div>
+
+<!-- Menu que aparece quando selecionamos o texto -->
+<div id="popup-codigo" class="hidden">
+    <p>Salvar trecho com o código:</p>
+    <select id="select-codigo">
+        {% for c in codigos %}
+        <option value="{{ c.id }}">{{ c.nome }}</option>
+        {% endfor %}
+    </select>
+    <button onclick="salvarTrecho()">Salvar</button>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
